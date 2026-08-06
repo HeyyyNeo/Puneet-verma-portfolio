@@ -74,6 +74,13 @@ const EXPERIENCE = [
   {
     role: "Division Head - Senior Director",
     company: "COFORGE",
+    points: [
+      "Applied GenAI tools to support UX research synthesis, ideation, and rapid design exploration.",
+      "Integrated GenAI into product and content workflows to improve usability and delivery efficiency.",
+      "Designed user-centered product interfaces and digital assets using Adobe Creative Suite.",
+      "Collaborated with stakeholders to translate business requirements into product solutions.",
+      "Led design teams while continuously learning and applying business and process insights.",
+    ],
     place: "Greater Noida, India",
     period: "Aug '25 – July '26",
     logo: "/cof.png",
@@ -81,6 +88,11 @@ const EXPERIENCE = [
   {
     role: "Senior Manager UX/UI Design",
     company: "Kyndryl",
+    points: [
+      "Led and supported a team of UX designers, helping them grow in their careers while ensuring high-quality and impactful work.",
+      "Collaborated closely with product managers, engineers, and other stakeholders to create seamless experiences and align on priorities.",
+      "Used research and data to understand user pain points, validate ideas, and create solutions that make a difference.",
+    ],
     place: "Hybrid",
     period: "July '24 – Aug '25",
     logo: "/kind.png",
@@ -89,12 +101,28 @@ const EXPERIENCE = [
     role: "Assistant Director : Content Design India Leader",
     company: "Ernst & Young LLP",
     place: "Gurgaon",
+    points: [
+      "Optimized and designed digital content for various industry sectors across ey.com and associated digital properties, including the EY Client Portal and social media.",
+      "Managed content quality and relevancy within the firm's knowledge infrastructure, ensuring an enhanced end-user experience.",
+      "Led the production of the Technical Content team, supporting tools like GBB, Discover, and SharePoint sites.",
+      "Established a new Content Delivery team in Poland.",
+      "Supervised a team of 60+ web developers and producers, assigning work based on competency.",
+      "Coordinated with editors and stakeholders to prepare prototypes and wireframes for online portals.",
+      "Acted as a subject matter expert on complex technical content management and design issues.",
+      "Created design prototypes for external and internal community sites, including graphics and site navigation.",
+    ],
     period: "Jan '13 – July '24",
     logo: "/ey.png",
   },
   {
     role: "Team Leader - Graphic Design / Web Design",
     company: "Fidelity",
+    points: [
+      "Directed a development team, delivering quality design solutions for web and print collaterals.",
+      "Created compelling PowerPoint presentations and web pages aligned with responsive design principles.",
+      "Spearheaded internal and external corporate design projects, ensuring consistency with brand standards.",
+      "Developed and maintained engaging digital content to optimize internal and external communication.",
+    ],
     place: "Bangalore",
     period: "Sept '06 – Jan '13",
     logo: "/fid.png",
@@ -102,6 +130,10 @@ const EXPERIENCE = [
   {
     role: "Analyst",
     company: "Deloitte",
+    points: [
+      "Designed marketing brochures, posters, and proposals adhering to brand standards.",
+      "Utilized graphic design expertise to create visually compelling PowerPoint presentations.",
+    ],
     place: "Hyderabad",
     period: "Oct '05 – Sept '06",
     logo: "/del.png",
@@ -110,6 +142,10 @@ const EXPERIENCE = [
     role: "Graphic Designer",
     company: "A.T. Kearney Pvt. Ltd",
     place: "Gurgaon",
+    points: [
+      "Edited and formatted PowerPoint presentations, ensuring brand consistency.",
+      "Collaborated with cross-functional teams to deliver accurate and creative design outputs.",
+    ],
     period: "Mar '05 – Sept '05",
     logo: "ker.png",
   },
@@ -949,20 +985,42 @@ function ExperienceRow({ exp, delay }) {
         <ul
           style={{
             margin: 0,
-            paddingLeft: 18,
             color: "#9a9ea6",
             fontSize: 14.5,
             lineHeight: 1.75,
           }}
         >
-          {exp?.points?.map((p, i) => (
-            <li
-              key={i}
-              style={{ marginBottom: 6, color: "white", width: "max-content" }}
+          <div
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            style={{
+              opacity: 1,
+              transition: `opacity 0.8s ease 1s, transform 0.4s cubic-bezier(.16,1,.3,1)`,
+              margin: "1rem 0",
+              borderRadius: 18,
+            }}
+          >
+            <p
+              style={{
+                color: "#c3c6cc",
+                fontSize: 14.5,
+                lineHeight: 1.7,
+                flex: 1,
+              }}
             >
-              {p}
-            </li>
-          ))}
+              {exp?.points?.map((p, i) => (
+                <div
+                  key={i}
+                  style={{
+                    marginBottom: 6,
+                    color: "white",
+                  }}
+                >
+                  {p}
+                </div>
+              ))}
+            </p>
+          </div>
         </ul>
       </div>
     </div>
@@ -1131,6 +1189,7 @@ function Contact() {
               (e.currentTarget.style.transform = "scale(1.05)")
             }
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            target="_blank"
           >
             puneetverma1@yahoo.com
           </a>
@@ -1138,7 +1197,7 @@ function Contact() {
         <br />
         <Reveal delay={0.3}>
           <a
-            href="mailto:puneetverma1@yahoo.com"
+            href="https://wa.me/919971000764?text=Hi%20Puneet"
             style={{
               display: "inline-block",
               fontSize: 15,
@@ -1154,8 +1213,33 @@ function Contact() {
               (e.currentTarget.style.transform = "scale(1.05)")
             }
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            target="_blank"
           >
-            Reach out to me here: +91-9971000764
+            Reach out: +91-9971000764
+          </a>
+        </Reveal>
+        <br />
+        <Reveal delay={0.3}>
+          <a
+            href="https://www.linkedin.com/in/puneet-verma-8586b32a/"
+            style={{
+              display: "inline-block",
+              fontSize: 15,
+              fontWeight: 600,
+              color: "#15151a",
+              background: "#ede8de",
+              padding: "16px 36px",
+              borderRadius: 100,
+              textDecoration: "none",
+              transition: "transform 0.3s ease",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            target="_blank"
+          >
+            Let's connect on linkedin
           </a>
         </Reveal>
       </div>
@@ -1277,6 +1361,91 @@ export default function App() {
       <Hero />
       <About />
       <Work />
+
+      <div
+        style={{
+          maxWidth: 1000,
+          margin: "0 auto",
+          display: "grid",
+          alignItems: "start",
+          padding: "40px 24px 120px",
+        }}
+        className="about-grid"
+      >
+        <Reveal>
+          <div
+            style={{
+              fontFamily: "'Fraunces', serif",
+              fontWeight: 500,
+              fontSize: "clamp(28px, 3.6vw, 40px)",
+              color: "#f6f4ef",
+              width: "100%",
+              margin: "0 0 28px",
+              textAlign: "left",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.1rem",
+              marginTop: "2rem",
+            }}
+          >
+            <span
+              style={{
+                padding: "0.5rem",
+                background: "#d97757",
+                color: "#121212",
+              }}
+            >
+              Achievements
+            </span>
+          </div>
+        </Reveal>
+        <div
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          style={{
+            opacity: 1,
+            transition: `opacity 0.8s ease 1s, transform 0.4s cubic-bezier(.16,1,.3,1)`,
+            background: "rgba(255,255,255,0.035)",
+            border: "1px solid rgba(255,255,255,0.09)",
+            margin: "1rem 0",
+            borderRadius: 18,
+            padding: 28,
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+          }}
+        >
+          <p
+            style={{
+              color: "#c3c6cc",
+              fontSize: 14.5,
+              lineHeight: 1.7,
+              flex: 1,
+            }}
+          >
+            <li>Earned EY badges on Design Thinking and Data Visualisation</li>{" "}
+            <li>
+              {" "}
+              Recognized as an Exemplar in EY Knowledge team given to a select
+              few outperformers
+            </li>
+            <li>
+              Collaborated with SMEs, sales teams, and leadership stakeholders
+              to deliver high-impact RFP responses within aggressive
+              timelines.{" "}
+            </li>
+            <li>
+              Obtained learning badges on Design Thinking and Data Visualization
+              Received award for "positive attitude and best turnaround time"
+              within first three months of joining Fidelity
+            </li>
+            <li>
+              Received 7 awards for "best quality work & turnaround time" in the
+              year 2008 and got promoted to Senior Specialist
+            </li>
+          </p>
+        </div>
+      </div>
       <Contact />
     </div>
   );
