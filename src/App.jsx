@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
-import './App.css'
+import "./App.css";
 /* ---------------------------------------------------------
    Data
 --------------------------------------------------------- */
@@ -11,46 +11,60 @@ const NAV_LINKS = [
 ];
 
 const STATS = [
-  { value: 2, suffix: "+", label: "Years designing", sub: "consumer products, enterprise software & design systems" },
-  { value: 5, suffix: "M+", label: "Users", sub: "reached by the products I've helped ship at Mygate" },
+  {
+    value: 2,
+    suffix: "+",
+    label: "Years designing",
+    sub: "consumer products, enterprise software & design systems",
+  },
+  {
+    value: 5,
+    suffix: "M+",
+    label: "Users",
+    sub: "reached by the products I've helped ship at Mygate",
+  },
 ];
 
 const PROJECTS = [
   {
     index: "",
     year: "",
-    title: "Developed executive-level pitch decks and proposal experiences aligned with client objectives and brand guidelines.",
+    title:
+      "Developed executive-level pitch decks and proposal experiences aligned with client objectives and brand guidelines.",
     tags: [""],
-    image: '/one-work.png',
+    image: "https://puneet-verma-senior-ux-ui.vercel.app/ey-3.png",
     desc: "From boardroom presentations to multimillion-dollar proposals, I crafted visually compelling narratives that combined strategic thinking, storytelling, and design excellence to influence decisions and create memorable client experiences.",
   },
   {
     index: "",
     year: "",
-    title: "Transformed complex business solutions into clear, engaging visual stories to improve proposal effectiveness.",
+    title:
+      "Transformed complex business solutions into clear, engaging visual stories to improve proposal effectiveness.",
     tags: [""],
     desc: "Led the creative development of high-impact executive presentations and proposal experiences, transforming complex business ideas into compelling visual narratives that strengthened client engagement, reinforced brand identity, and supported strategic business growth.",
-    image: "/two-work.png",
+    image: "https://puneet-verma-senior-ux-ui.vercel.app/ey-1-blur.jpeg",
     cta: "",
     href: null,
   },
   {
     index: "",
     year: "",
-    title: "Collaborated with SMEs, sales teams, and leadership stakeholders to deliver high-impact RFP responses within aggressive timelines.",
+    title:
+      "Collaborated with SMEs, sales teams, and leadership stakeholders to deliver high-impact RFP responses within aggressive timelines.",
     tags: [""],
-    desc: 'Worked closely with cross-functional teams to create winning proposal responses and executive presentations, translating complex technical information into persuasive client narratives that enhanced engagement and supported successful business pursuits.',
-    image: "/three.jpg",
+    desc: "Worked closely with cross-functional teams to create winning proposal responses and executive presentations, translating complex technical information into persuasive client narratives that enhanced engagement and supported successful business pursuits.",
+    image: "https://puneet-verma-senior-ux-ui.vercel.app/fd-2-blur.jpeg",
     cta: "",
     href: "",
   },
   {
     index: "",
     year: "",
-    title: "Established design standards and storytelling approaches to improve consistency, quality, and efficiency across proposal deliverables.",
+    title:
+      "Established design standards and storytelling approaches to improve consistency, quality, and efficiency across proposal deliverables.",
     tags: [""],
-    desc: 'Established a strategic design and storytelling framework that transformed proposal development into a cohesive, visually engaging experience—improving quality, reinforcing brand consistency, and enabling faster delivery under tight business deadlines.',
-    image: "/four-work.png",
+    desc: "Established a strategic design and storytelling framework that transformed proposal development into a cohesive, visually engaging experience—improving quality, reinforcing brand consistency, and enabling faster delivery under tight business deadlines.",
+    image: "https://puneet-verma-senior-ux-ui.vercel.app/ey-1.png",
     cta: "",
     href: "https://play.google.com/store/apps/details?id=com.mygate.quickpass&hl=en_IN",
   },
@@ -63,7 +77,6 @@ const EXPERIENCE = [
     place: "Greater Noida, India",
     period: "Aug '25 – July '26",
     logo: "/cof.png",
-    
   },
   {
     role: "Senior Manager UX/UI Design",
@@ -71,7 +84,6 @@ const EXPERIENCE = [
     place: "Hybrid",
     period: "July '24 – Aug '25",
     logo: "/kind.png",
-   
   },
   {
     role: "Assistant Director : Content Design India Leader",
@@ -79,7 +91,6 @@ const EXPERIENCE = [
     place: "Gurgaon",
     period: "Jan '13 – July '24",
     logo: "/ey.png",
-    
   },
   {
     role: "Team Leader - Graphic Design / Web Design",
@@ -87,7 +98,6 @@ const EXPERIENCE = [
     place: "Bangalore",
     period: "Sept '06 – Jan '13",
     logo: "/fid.png",
-   
   },
   {
     role: "Analyst",
@@ -95,7 +105,6 @@ const EXPERIENCE = [
     place: "Hyderabad",
     period: "Oct '05 – Sept '06",
     logo: "/del.png",
-   
   },
   {
     role: "Graphic Designer",
@@ -103,7 +112,6 @@ const EXPERIENCE = [
     place: "Gurgaon",
     period: "Mar '05 – Sept '05",
     logo: "ker.png",
-   
   },
 ];
 
@@ -111,14 +119,16 @@ const RECS = [
   {
     name: "Ritik Raj",
     role: "Senior Product Designer @ Slice",
-    avatar: "https://framerusercontent.com/images/SQWHMwl7It1vFbtH0k8ECPyFvt8.png",
+    avatar:
+      "https://framerusercontent.com/images/SQWHMwl7It1vFbtH0k8ECPyFvt8.png",
     quote:
       "Puneet, during his design internship at Gida Technologies, proved himself to be a talented and reliable designer. His strong grasp of user-centric design, attention to detail, and ability to take feedback and improve rapidly made him a key contributor to our projects. Beyond his skills, he was proactive, collaborative, and a joy to work with.",
   },
   {
     name: "Stian Michael Årsnes",
     role: "Founder, Naitsmania AS",
-    avatar: "https://framerusercontent.com/images/26Z6s5ehGPjE6sYyTtKXzfqcv0s.png",
+    avatar:
+      "https://framerusercontent.com/images/26Z6s5ehGPjE6sYyTtKXzfqcv0s.png",
     quote:
       "I highly recommend Puneet, he has an excellent eye for design (both visually and UI/UX) and quality. He is able to adapt his design to different cultures and patterns and always makes sure to really understand the customer needs.",
   },
@@ -149,7 +159,7 @@ function useReveal(threshold = 0.2) {
           obs.unobserve(el);
         }
       },
-      { threshold }
+      { threshold },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -231,81 +241,84 @@ function Nav() {
 
   return (
     <>
-  
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        display: "flex",
-        justifyContent: "center",
-        padding: scrolled ? "14px 20px" : "26px 20px",
-        transition: "padding 0.4s cubic-bezier(.16,1,.3,1)",
-        pointerEvents: "none",
-      }}
-    >
-      <nav
+      <div
         style={{
-          pointerEvents: "auto",
-          width: "100%",
-          maxWidth: 760,
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 100,
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: scrolled ? "10px 10px 10px 22px" : "0px 4px",
-          borderRadius: 100,
-          background: scrolled ? "rgba(15,15,17,0.72)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          border: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 8px 30px rgba(0,0,0,0.35)" : "none",
-          transition: "all 0.5s cubic-bezier(.16,1,.3,1)",
+          justifyContent: "center",
+          padding: scrolled ? "14px 20px" : "26px 20px",
+          transition: "padding 0.4s cubic-bezier(.16,1,.3,1)",
+          pointerEvents: "none",
         }}
       >
-        <a
-          href="#top"
+        <nav
           style={{
-            fontFamily: "'Fraunces', serif",
-            fontSize: 16,
-            fontWeight: 600,
-            color: "#f4f2ee",
-            textDecoration: "none",
-            letterSpacing: "0.01em",
+            pointerEvents: "auto",
+            width: "100%",
+            maxWidth: 760,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: scrolled ? "10px 10px 10px 22px" : "0px 4px",
+            borderRadius: 100,
+            background: scrolled ? "rgba(15,15,17,0.72)" : "transparent",
+            backdropFilter: scrolled ? "blur(16px)" : "none",
+            border: scrolled
+              ? "1px solid rgba(255,255,255,0.08)"
+              : "1px solid transparent",
+            boxShadow: scrolled ? "0 8px 30px rgba(0,0,0,0.35)" : "none",
+            transition: "all 0.5s cubic-bezier(.16,1,.3,1)",
           }}
         >
-          Puneet Verma
-        </a>
+          <a
+            href="#top"
+            style={{
+              fontFamily: "'Fraunces', serif",
+              fontSize: 16,
+              fontWeight: 600,
+              color: "#f4f2ee",
+              textDecoration: "none",
+              letterSpacing: "0.01em",
+            }}
+          >
+            Puneet Verma
+          </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 4 }} className="nav-links-desktop">
-          {NAV_LINKS.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              style={{
-                fontSize: 13.5,
-                color: "#c9cbd1",
-                textDecoration: "none",
-                padding: "9px 16px",
-                borderRadius: 100,
-                transition: "background 0.25s ease, color 0.25s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                e.currentTarget.style.color = "#fff";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#c9cbd1";
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
-          
-        </div>
-      </nav>
-    </div>
+          <div
+            style={{ display: "flex", alignItems: "center", gap: 4 }}
+            className="nav-links-desktop"
+          >
+            {NAV_LINKS.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                style={{
+                  fontSize: 13.5,
+                  color: "#c9cbd1",
+                  textDecoration: "none",
+                  padding: "9px 16px",
+                  borderRadius: 100,
+                  transition: "background 0.25s ease, color 0.25s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.color = "#fff";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.color = "#c9cbd1";
+                }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      </div>
     </>
   );
 }
@@ -321,7 +334,7 @@ function Hero() {
     return () => clearTimeout(t);
   }, []);
 
-  const words = ["Pursuit", "Designer", "&", "Leader"];
+  const words = ["Creative", "Director", "&", "Design Leader"];
 
   return (
     <section
@@ -352,7 +365,14 @@ function Hero() {
         }}
       />
 
-      <div style={{ maxWidth: 900, margin: "0 auto", width: "100%", position: "relative" }}>
+      <div
+        style={{
+          maxWidth: 900,
+          margin: "0 auto",
+          width: "100%",
+          position: "relative",
+        }}
+      >
         <div
           style={{
             display: "flex",
@@ -361,42 +381,46 @@ function Hero() {
             marginBottom: 28,
             opacity: ready ? 1 : 0,
             transform: ready ? "translateY(0)" : "translateY(14px)",
-            transition: "opacity 0.8s ease 0.05s, transform 0.8s cubic-bezier(.16,1,.3,1) 0.05s",
+            transition:
+              "opacity 0.8s ease 0.05s, transform 0.8s cubic-bezier(.16,1,.3,1) 0.05s",
           }}
         >
           <span style={{ fontSize: 20 }}>👋</span>
-          <span style={{ color: "#a9adb5", fontSize: 15 }}>Hey, I'm Puneet</span>
+          <span style={{ color: "#a9adb5", fontSize: 15 }}>
+            Hey, I'm Puneet
+          </span>
         </div>
 
-<div style={{
-  display: 'flex',
-  flexWrap: 'wrap'
-}}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+          }}
+        >
           {words.map((w, i) => (
-            
-              <h1
-                style={{
-                  fontFamily: "'Fraunces', serif",
-                  fontWeight: 500,
-                  fontSize: "clamp(48px, 10vw, 108px)",
-                  lineHeight: 0.98,
-                  letterSpacing: "-0.02em",
-                  color: "#f6f4ef",
-                  margin: 0,
-                  display: "inline",
-                  fontStyle: i === 1 ? "italic" : "normal",
-                  color: i === 1 ? "#121212" : "#f6f4ef",
-                  opacity: ready ? 1 : 0,
-                  textAlign: 'left',
-                  transform: ready ? "translateY(0%)" : "translateY(100%)",
-                  backgroundColor: ((i+1)%2)==0 ? '#d97757' : '',
-                  transition: `opacity 0.9s cubic-bezier(.16,1,.3,1) ${0.15 + i * 0.12}s, transform 0.9s cubic-bezier(.16,1,.3,1) ${0.15 + i * 0.12}s`,
-                }}
-              >
-                {w}
-              </h1>
+            <h1
+              style={{
+                fontFamily: "'Fraunces', serif",
+                fontWeight: 500,
+                fontSize: "clamp(48px, 10vw, 108px)",
+                lineHeight: 0.98,
+                letterSpacing: "-0.02em",
+                color: "#f6f4ef",
+                margin: 0,
+                display: "inline",
+                fontStyle: i === 1 ? "italic" : "normal",
+                color: i === 1 ? "#121212" : "#f6f4ef",
+                opacity: ready ? 1 : 0,
+                textAlign: "left",
+                transform: ready ? "translateY(0%)" : "translateY(100%)",
+                backgroundColor: (i + 1) % 2 == 0 ? "#d97757" : "",
+                transition: `opacity 0.9s cubic-bezier(.16,1,.3,1) ${0.15 + i * 0.12}s, transform 0.9s cubic-bezier(.16,1,.3,1) ${0.15 + i * 0.12}s`,
+              }}
+            >
+              {w}
+            </h1>
           ))}
-          </div>        
+        </div>
       </div>
 
       <div
@@ -445,8 +469,27 @@ function StatCard({ stat, delay }) {
         {display}
         {stat.suffix}
       </div>
-      <div style={{ marginTop: 14, fontSize: 15, color: "#e9e6df", fontWeight: 600 }}>{stat.label}</div>
-      <div style={{ marginTop: 6, fontSize: 13.5, color: "#8a8f98", lineHeight: 1.5, maxWidth: 280 }}>{stat.sub}</div>
+      <div
+        style={{
+          marginTop: 14,
+          fontSize: 15,
+          color: "#e9e6df",
+          fontWeight: 600,
+        }}
+      >
+        {stat.label}
+      </div>
+      <div
+        style={{
+          marginTop: 6,
+          fontSize: 13.5,
+          color: "#8a8f98",
+          lineHeight: 1.5,
+          maxWidth: 280,
+        }}
+      >
+        {stat.sub}
+      </div>
     </div>
   );
 }
@@ -488,9 +531,26 @@ function ProjectCard({ project, delay }) {
         className="project-row"
       >
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-            <span style={{ fontSize: 12.5, color: "#6f7480", fontVariantNumeric: "tabular-nums" }}>{project.index}</span>
-            <span style={{ fontSize: 12.5, color: "#6f7480" }}>{project.year}</span>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              marginBottom: 18,
+            }}
+          >
+            <span
+              style={{
+                fontSize: 12.5,
+                color: "#6f7480",
+                fontVariantNumeric: "tabular-nums",
+              }}
+            >
+              {project.index}
+            </span>
+            <span style={{ fontSize: 12.5, color: "#6f7480" }}>
+              {project.year}
+            </span>
           </div>
           <h3
             style={{
@@ -505,7 +565,9 @@ function ProjectCard({ project, delay }) {
           >
             {project.title}
           </h3>
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 18 }}>
+          <div
+            style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 18 }}
+          >
             {project.tags.map((t) => (
               <span
                 key={t}
@@ -521,7 +583,17 @@ function ProjectCard({ project, delay }) {
               </span>
             ))}
           </div>
-          <p style={{ marginTop: 20, color: "#9a9ea6", fontSize: 14.5, lineHeight: 1.6, maxWidth: 420 }}>{project.desc}</p>
+          <p
+            style={{
+              marginTop: 20,
+              color: "#9a9ea6",
+              fontSize: 14.5,
+              lineHeight: 1.6,
+              maxWidth: 420,
+            }}
+          >
+            {project.desc}
+          </p>
           <div
             style={{
               marginTop: 24,
@@ -573,7 +645,8 @@ function ProjectCard({ project, delay }) {
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%)",
+              background:
+                "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%)",
             }}
           />
         </div>
@@ -591,17 +664,16 @@ function Work() {
             style={{
               fontFamily: "'Fraunces', serif",
               fontWeight: 500,
-              fontSize: "clamp(30px, 4.2vw, 48px)",
+              fontSize: "clamp(26px, 4.2vw, 48px)",
               color: "#f6f4ef",
-              background: '#d97757',
-              width: 'max-content',
+              background: "#d97757",
+              width: "max-content",
               margin: "0 0 14px",
             }}
           >
             Check out some of my work
           </h2>
         </Reveal>
-
 
         <div style={{ marginTop: 56 }}>
           {PROJECTS.map((p, i) => (
@@ -630,8 +702,7 @@ function About() {
         }}
         className="about-grid"
       >
-     
-      <div>
+        <div>
           <Reveal>
             <div
               style={{
@@ -639,49 +710,157 @@ function About() {
                 fontWeight: 500,
                 fontSize: "clamp(28px, 3.6vw, 40px)",
                 color: "#f6f4ef",
-                width: '100%',
+                width: "100%",
                 margin: "0 0 28px",
-                textAlign: 'left',
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '0.1rem',
+                textAlign: "left",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "0.1rem",
               }}
             >
-      <span style={{ padding: '0.5rem' }}>Proposal & Business Development</span> 
-      {/* <span style={{ padding: '0.5rem' }}>&</span>
+              <span style={{ padding: "0.5rem" }}>
+                Proposal & Business Development
+              </span>
+              {/* <span style={{ padding: '0.5rem' }}>&</span>
       <span style={{padding: '0.5rem' }}>Business Development</span>  */}
-      <span style={{background:'#d97757', padding: '0.5rem', color: '#121212' }}>Design Leadership</span>    
- </div>
+              <span
+                style={{
+                  background: "#d97757",
+                  padding: "0.5rem",
+                  color: "#121212",
+                }}
+              >
+                Design Leadership
+              </span>
+            </div>
           </Reveal>
 
-<div
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      style={{
-        opacity: 1,
-        transition: `opacity 0.8s ease 1s, transform 0.4s cubic-bezier(.16,1,.3,1)`,
-        background: "rgba(255,255,255,0.035)",
-        border: "1px solid rgba(255,255,255,0.09)",
-        margin: '1rem 0',
-        borderRadius: 18,
-        padding: 28,
-        display: "flex",
-        flexDirection: "column",
-        boxShadow: "0 20px 40px rgba(0,0,0,0.35)"
-      }}
-    >
-      <p style={{ color: "#c3c6cc", fontSize: 14.5, lineHeight: 1.7, flex: 1}}>
-        Led strategic design support for high-value RFP/RFI responses, client pitches, and business proposals, partnering with sales, account teams, and business leaders to create compelling visual narratives, executive presentations, solution showcases, and proposal collateral. Enabled teams to deliver differentiated, brand-aligned proposals that strengthened client engagement and contributed to successful business acquisition initiatives.
-Supported proposal design engagements for global clients across industries
-        </p>
-      
-    </div>
-         
-         
+          <div
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            style={{
+              opacity: 1,
+              transition: `opacity 0.8s ease 1s, transform 0.4s cubic-bezier(.16,1,.3,1)`,
+              background: "rgba(255,255,255,0.035)",
+              border: "1px solid rgba(255,255,255,0.09)",
+              margin: "1rem 0",
+              borderRadius: 18,
+              padding: 28,
+              display: "flex",
+              flexDirection: "column",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+            }}
+          >
+            <p
+              style={{
+                color: "#c3c6cc",
+                fontSize: 14.5,
+                lineHeight: 1.7,
+                flex: 1,
+              }}
+            >
+              Led strategic design support for high-value RFP/RFI responses,
+              client pitches, and business proposals, partnering with sales,
+              account teams, and business leaders to create compelling visual
+              narratives, executive presentations, solution showcases, and
+              proposal collateral. Enabled teams to deliver differentiated,
+              brand-aligned proposals that strengthened client engagement and
+              contributed to successful business acquisition initiatives.
+              Supported proposal design engagements for global clients across
+              industries
+            </p>
+          </div>
         </div>
       </div>
-      <img src="/css_sprites.png" style={{display: 'flex', maxWidth: '1000px', margin: 'auto', width: '100%'}}/>
 
+      <img
+        src="/css_sprites.png"
+        style={{
+          display: "flex",
+          maxWidth: "1000px",
+          margin: "auto",
+          width: "100%",
+        }}
+      />
+      <div
+        style={{
+          maxWidth: 1000,
+          margin: "0 auto",
+          display: "grid",
+          alignItems: "start",
+        }}
+        className="about-grid"
+      >
+        <Reveal>
+          <div
+            style={{
+              fontFamily: "'Fraunces', serif",
+              fontWeight: 500,
+              fontSize: "clamp(28px, 3.6vw, 40px)",
+              color: "#f6f4ef",
+              width: "100%",
+              margin: "0 0 28px",
+              textAlign: "left",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.1rem",
+              marginTop: "2rem",
+            }}
+          >
+            <span
+              style={{
+                padding: "0.5rem",
+                background: "#d97757",
+                color: "#121212",
+              }}
+            >
+              Key Contributions
+            </span>
+          </div>
+        </Reveal>
+        <div
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          style={{
+            opacity: 1,
+            transition: `opacity 0.8s ease 1s, transform 0.4s cubic-bezier(.16,1,.3,1)`,
+            background: "rgba(255,255,255,0.035)",
+            border: "1px solid rgba(255,255,255,0.09)",
+            margin: "1rem 0",
+            borderRadius: 18,
+            padding: 28,
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+          }}
+        >
+          <p
+            style={{
+              color: "#c3c6cc",
+              fontSize: 14.5,
+              lineHeight: 1.7,
+              flex: 1,
+            }}
+          >
+            <li>
+              Developed executive-level pitch decks and proposal experiences
+              aligned with client objectives and brand guidelines.
+            </li>{" "}
+            <li>
+              {" "}
+              Transformed complex business solutions into clear, engaging visual
+              stories to improve proposal effectiveness.{" "}
+            </li>
+            Collaborated with SMEs, sales teams, and leadership stakeholders to
+            deliver high-impact RFP responses within aggressive timelines.{" "}
+            <li>
+              Established design standards and storytelling approaches to
+              improve consistency, quality, and efficiency across proposal
+              deliverables.
+            </li>
+          </p>
+        </div>
+      </div>
       <div style={{ maxWidth: 1000, margin: "120px auto 0" }}>
         <Reveal>
           <Eyebrow>Experience</Eyebrow>
@@ -689,15 +868,15 @@ Supported proposal design engagements for global clients across industries
             style={{
               fontFamily: "'Fraunces', serif",
               fontWeight: 500,
-              fontSize: "clamp(28px, 3.6vw, 40px)",
+              fontSize: "clamp(28px, 5.6vw, 40px)",
               color: "#f6f4ef",
               margin: "0 0 28px",
-background:'#f06909',
-width: 'max-content'            }}
+              background: "#f06909",
+              width: "max-content",
+            }}
           >
             The journey so far
           </h2>
-         
         </Reveal>
 
         <div style={{ position: "relative" }}>
@@ -736,18 +915,30 @@ function ExperienceRow({ exp, delay }) {
         transition: `opacity 0.7s ease ${delay}s, transform 0.7s cubic-bezier(.16,1,.3,1) ${delay}s`,
       }}
     >
-
       <div>
         <div
           style={{
             display: "flex",
-            flexDirection: 'column',
+            flexDirection: "column",
             flexWrap: "wrap",
             alignItems: "baseline",
           }}
         >
-          <img src={exp.logo} alt={exp.company} style={{display:'flex', maxWidth: "5rem", objectFit: "contain" }} />
-          <h4 style={{ margin: 0, fontSize: 18, fontWeight: 600, color: "#f4f2ee" }}>{exp.role}</h4>
+          <img
+            src={exp.logo}
+            alt={exp.company}
+            style={{ display: "flex", maxWidth: "5rem", objectFit: "contain" }}
+          />
+          <h4
+            style={{
+              margin: 0,
+              fontSize: 18,
+              fontWeight: 600,
+              color: "#f4f2ee",
+            }}
+          >
+            {exp.role}
+          </h4>
 
           {/* <span style={{ color: "#121212", fontSize: 20, background: '#d97757', fontWeight: 600,fontFamily: "'Fraunces', serif",padding: '0.25rem'
  }}>{exp.company}</span> */}
@@ -755,9 +946,20 @@ function ExperienceRow({ exp, delay }) {
         <div style={{ fontSize: 12.5, color: "#6f7480" }}>
           {exp.place} &middot; {exp.period}
         </div>
-        <ul style={{ margin: 0, paddingLeft: 18, color: "#9a9ea6", fontSize: 14.5, lineHeight: 1.75 }}>
+        <ul
+          style={{
+            margin: 0,
+            paddingLeft: 18,
+            color: "#9a9ea6",
+            fontSize: 14.5,
+            lineHeight: 1.75,
+          }}
+        >
           {exp?.points?.map((p, i) => (
-            <li key={i} style={{ marginBottom: 6, color: 'white', width: 'max-content' }}>
+            <li
+              key={i}
+              style={{ marginBottom: 6, color: "white", width: "max-content" }}
+            >
               {p}
             </li>
           ))}
@@ -789,7 +991,8 @@ function Recommendations() {
             What people say about me
           </h2>
           <p style={{ color: "#8a8f98", fontSize: 15.5, margin: "0 0 48px" }}>
-            A few words from people I've designed with, shipped alongside, and problem-solved next to.
+            A few words from people I've designed with, shipped alongside, and
+            problem-solved next to.
           </p>
         </Reveal>
 
@@ -830,15 +1033,32 @@ function RecCard({ rec, delay }) {
         boxShadow: hover ? "0 20px 40px rgba(0,0,0,0.35)" : "none",
       }}
     >
-      <p style={{ color: "#c3c6cc", fontSize: 14.5, lineHeight: 1.7, flex: 1, margin: "0 0 24px" }}>{rec.quote}</p>
+      <p
+        style={{
+          color: "#c3c6cc",
+          fontSize: 14.5,
+          lineHeight: 1.7,
+          flex: 1,
+          margin: "0 0 24px",
+        }}
+      >
+        {rec.quote}
+      </p>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
         <img
           src={rec.avatar}
           alt={rec.name}
-          style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover" }}
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
         />
         <div>
-          <div style={{ fontSize: 14, fontWeight: 600, color: "#f4f2ee" }}>{rec.name}</div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "#f4f2ee" }}>
+            {rec.name}
+          </div>
           <div style={{ fontSize: 12, color: "#8a8f98" }}>{rec.role}</div>
         </div>
       </div>
@@ -852,11 +1072,19 @@ function RecCard({ rec, delay }) {
 
 function Contact() {
   const [ref, visible] = useReveal(0.3);
-  const words = ["lets", "design,", "build,", "create", "incredible", "work", "together."];
+  const words = [
+    "lets",
+    "design,",
+    "build,",
+    "create",
+    "incredible",
+    "work",
+    "together.",
+  ];
 
   return (
     <section id="resume" style={{ padding: "60px 24px 60px" }}>
-      <div style={{ maxWidth: 1000, margin: "0 auto", textAlign: "center" }}>
+      <div style={{ maxWidth: 1000, margin: "2rem auto", textAlign: "center" }}>
         <h2
           ref={ref}
           style={{
@@ -899,14 +1127,37 @@ function Contact() {
               textDecoration: "none",
               transition: "transform 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
             onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
           >
             puneetverma1@yahoo.com
           </a>
         </Reveal>
-
-        
+        <br />
+        <Reveal delay={0.3}>
+          <a
+            href="mailto:puneetverma1@yahoo.com"
+            style={{
+              display: "inline-block",
+              fontSize: 15,
+              fontWeight: 600,
+              color: "#15151a",
+              background: "#ede8de",
+              padding: "16px 36px",
+              borderRadius: 100,
+              textDecoration: "none",
+              transition: "transform 0.3s ease",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "scale(1.05)")
+            }
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            Reach out to me here: +91-9971000764
+          </a>
+        </Reveal>
       </div>
     </section>
   );
@@ -953,7 +1204,8 @@ function CursorGlow() {
         width: 400,
         height: 400,
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(217,119,87,0.08) 0%, rgba(217,119,87,0) 70%)",
+        background:
+          "radial-gradient(circle, rgba(217,119,87,0.08) 0%, rgba(217,119,87,0) 70%)",
         pointerEvents: "none",
         zIndex: 1,
         willChange: "transform",
