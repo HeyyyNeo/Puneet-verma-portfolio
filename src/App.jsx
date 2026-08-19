@@ -32,7 +32,12 @@ const PROJECTS = [
     title:
       "Developed executive-level pitch decks and proposal experiences aligned with client objectives and brand guidelines.",
     tags: [""],
-    image: "https://puneet-verma-senior-ux-ui.vercel.app/ey-3.png",
+    image: [
+      "/steadfast-1.png",
+      "/steadfast-2.png",
+      "/steadfast-3.png",
+      "/steadfast-4.png",
+    ],
     desc: "From boardroom presentations to multimillion-dollar proposals, I crafted visually compelling narratives that combined strategic thinking, storytelling, and design excellence to influence decisions and create memorable client experiences.",
   },
   {
@@ -42,7 +47,7 @@ const PROJECTS = [
       "Transformed complex business solutions into clear, engaging visual stories to improve proposal effectiveness.",
     tags: [""],
     desc: "Led the creative development of high-impact executive presentations and proposal experiences, transforming complex business ideas into compelling visual narratives that strengthened client engagement, reinforced brand identity, and supported strategic business growth.",
-    image: "https://puneet-verma-senior-ux-ui.vercel.app/ey-1-blur.jpeg",
+    image: ["/dubai-1.png", "/dubai-2.png", "/dubai-3.png", "/dubai-4.png"],
     cta: "",
     href: null,
   },
@@ -53,7 +58,7 @@ const PROJECTS = [
       "Collaborated with SMEs, sales teams, and leadership stakeholders to deliver high-impact RFP responses within aggressive timelines.",
     tags: [""],
     desc: "Worked closely with cross-functional teams to create winning proposal responses and executive presentations, translating complex technical information into persuasive client narratives that enhanced engagement and supported successful business pursuits.",
-    image: "https://puneet-verma-senior-ux-ui.vercel.app/fd-2-blur.jpeg",
+    image: ["/coffee-1.png", "/coffee-2.png", "/coffee-3.png", "/coffee-4.png"],
     cta: "",
     href: "",
   },
@@ -61,10 +66,15 @@ const PROJECTS = [
     index: "",
     year: "",
     title:
-      "Established design standards and storytelling approaches to improve consistency, quality, and efficiency across proposal deliverables.",
+      "Creative Templates with design standards and storytelling approaches to improve consistency, quality, and efficiency across proposal deliverables.",
     tags: [""],
     desc: "Established a strategic design and storytelling framework that transformed proposal development into a cohesive, visually engaging experience—improving quality, reinforcing brand consistency, and enabling faster delivery under tight business deadlines.",
-    image: "https://puneet-verma-senior-ux-ui.vercel.app/ey-1.png",
+    image: [
+      "/template-1.png",
+      "/template-2.png",
+      "/template-3.png",
+      "/template-4.png",
+    ],
     cta: "",
     href: "https://play.google.com/store/apps/details?id=com.mygate.quickpass&hl=en_IN",
   },
@@ -554,8 +564,8 @@ function ProjectCard({ project, delay }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
-          display: "grid",
-          gridTemplateColumns: "1.1fr 1fr",
+          display: "flex",
+          flexDirection: "column",
           gap: 48,
           alignItems: "center",
           textDecoration: "none",
@@ -625,7 +635,6 @@ function ProjectCard({ project, delay }) {
               color: "#9a9ea6",
               fontSize: 14.5,
               lineHeight: 1.6,
-              maxWidth: 420,
             }}
           >
             {project.desc}
@@ -658,33 +667,44 @@ function ProjectCard({ project, delay }) {
 
         <div
           style={{
-            position: "relative",
-            borderRadius: 18,
-            overflow: "hidden",
-            aspectRatio: "4 / 3",
-            background: "#1b1b1e",
-            border: "1px solid rgba(255,255,255,0.08)",
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: "1rem",
           }}
         >
-          <img
-            src={project.image}
-            alt={project.title}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              transform: hover ? "scale(1.06)" : "scale(1)",
-              transition: "transform 0.7s cubic-bezier(.16,1,.3,1)",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%)",
-            }}
-          />
+          {project?.image.map((link) => (
+            <div
+              style={{
+                position: "relative",
+                display: "grid",
+                borderRadius: 18,
+                overflow: "hidden",
+                aspectRatio: "4 / 3",
+                background: "#1b1b1e",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}
+            >
+              <img
+                src={link}
+                alt={"image"}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  transform: hover ? "scale(1.06)" : "scale(1)",
+                  transition: "transform 0.7s cubic-bezier(.16,1,.3,1)",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background:
+                    "linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.35) 100%)",
+                }}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -694,7 +714,14 @@ function ProjectCard({ project, delay }) {
 function Work() {
   return (
     <section id="work" style={{ padding: "40px 24px 120px" }}>
-      <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          maxWidth: 1000,
+          margin: "0 auto",
+        }}
+      >
         <Reveal>
           <h2
             style={{
