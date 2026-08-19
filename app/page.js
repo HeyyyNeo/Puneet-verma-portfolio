@@ -154,7 +154,7 @@ function Nav() {
   }, []);
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-3 backdrop-blur-xl bg-[hsl(var(--background))]/70 border-b border-black/5" : "py-6"}`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${true ? "py-3 backdrop-blur-xl bg-[hsl(var(--background))]/70 border-b border-black/5" : "py-6"}`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">
@@ -165,12 +165,12 @@ function Nav() {
             Puneet Verma
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-1 text-[#1D1816]">
           {NAV.map((n) => (
             <a
               key={n.href}
               href={n.href}
-              className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="px-4 py-2 text-sm text-[#1D1816] hover:text-foreground transition-colors "
             >
               {n.label}
             </a>
@@ -196,6 +196,10 @@ function Hero() {
     <section
       id="top"
       className="relative min-h-[100svh] flex flex-col justify-end pb-16 md:pb-24 pt-32 overflow-hidden"
+      style={{
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right",
+      }}
     >
       <div className="absolute inset-0 -z-10 noise opacity-[0.12]" />
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-10">
@@ -206,30 +210,50 @@ function Hero() {
           </span>
         </div>
         <div
-          className="flex items-end gap-3 mb-4 fade-up"
+          className="flex flex-col sm:flex-row sm:items-end gap-3 mb-4 fade-up"
           style={{ animationDelay: "80ms" }}
         >
-          <img src="/hero-image.png" className="h-64 w-48 rounded-lg" />
           <span className="text-2xl md:text-3xl">👋</span>
 
-          <span className="font-serif italic text-xl md:text-2xl text-muted-foreground">
+          <span className="font-serif italic text-xl md:text-2xl text-[#1D1816]">
             Hey, I'm Puneet Verma
           </span>
         </div>
-        <h1
-          className="font-serif text-balance leading-[0.92] tracking-tight text-[16vw] md:text-[10.5vw] lg:text-[9.5vw] fade-up"
-          style={{ animationDelay: "160ms" }}
-        >
-          Creative <em className="italic">Director</em>
-          <span className="text-muted-foreground"> &amp; </span>
-          <br />
-          Design <em className="italic">Leader</em>.
-        </h1>
+        <div className="flex flex-col gap-8 md:gap-0 md:flex-row">
+          <h1
+            className="font-serif text-balance leading-[0.92] tracking-tight text-[16vw] md:text-[10.5vw] lg:text-[9rem] fade-up"
+            style={{ animationDelay: "160ms" }}
+          >
+            Creative <br />
+            <em className="italic my-[0.2rem]">Director</em>
+            <span className=""> &amp; </span>
+            <br />
+            Design <em className="italic">Leader</em>.
+          </h1>
+          <div className="relative">
+            <span className="bg-white  rounded-full shadow-md absolute text-xs px-4 p-2 -top-2 -left-4  ">
+              ⚡️ Passion for design
+            </span>
+
+            <span className="bg-white absolute  rounded-full shadow-xl text-xs px-2 p-2 top-12 -right-4 ">
+              🧠 Pitch decks
+            </span>
+
+            <span className="bg-white absolute rounded-full shadow-xl text-xs px-2 p-2 bottom-12 -right-4 ">
+              🧩 Visual Storytelling decks
+            </span>
+
+            <img
+              src="./hero-image.png"
+              className="max-h-[40rem] md:max-h-[30rem] rounded-xl"
+            />
+          </div>
+        </div>
         <div
           className="mt-10 md:mt-14 flex flex-col md:flex-row md:items-end md:justify-between gap-8 fade-up"
           style={{ animationDelay: "320ms" }}
         >
-          <p className="max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="max-w-xl text-base md:text-lg text-[#1D1816] leading-relaxed">
             Twenty years crafting proposals, pitch decks, and design systems for
             global enterprises — turning strategy into stories that win
             business.
