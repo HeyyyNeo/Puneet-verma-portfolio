@@ -559,7 +559,7 @@ function Contact() {
             </div>
           </a>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/puneet-verma-8586b32a"
             target="_blank"
             rel="noreferrer"
             className="group flex items-start gap-4"
