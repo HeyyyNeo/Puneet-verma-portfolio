@@ -11,10 +11,11 @@ import {
 } from "lucide-react";
 
 const NAV = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "About", href: "/#about" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Portfolio", href: "/portfolio" },
 ];
 
 const EXPERIENCES = [
@@ -86,7 +87,7 @@ const EXPERIENCES = [
   },
 ];
 
-const PROJECTS = [
+export const PROJECTS = [
   {
     number: "01",
     tag: "Executive Pitch Decks",
@@ -144,7 +145,7 @@ const KEY_CONTRIBUTIONS = [
   "Established design standards and storytelling approaches to improve consistency, quality, and efficiency across proposal deliverables.",
 ];
 
-function Nav() {
+export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const on = () => setScrolled(window.scrollY > 40);
@@ -195,7 +196,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] flex flex-col justify-end pb-16 md:pb-24 pt-32 overflow-hidden"
+      className="relative flex flex-col justify-end pb-16 md:pb-24 pt-32 overflow-hidden"
       style={{
         backgroundRepeat: "no-repeat",
         backgroundPosition: "right",
@@ -429,7 +430,7 @@ function Experience() {
   );
 }
 
-function ProjectBlock({ project, index }) {
+export function ProjectBlock({ project, index }) {
   const flip = index % 2 === 1;
   return (
     <div className="py-20 md:py-32 border-t border-black/10">
@@ -482,6 +483,17 @@ function ProjectBlock({ project, index }) {
                 </div>
               ))}
             </div>
+            {project?.videos?.map((s) => (
+              <iframe
+                className="ml-0"
+                width="100%"
+                height="320px"
+                src="https://youtube.com/embed/Yb1XLVBTj14"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            ))}
           </div>
         </div>
       </div>
@@ -489,7 +501,7 @@ function ProjectBlock({ project, index }) {
   );
 }
 
-function Work() {
+export function Work({ projectFromProps }) {
   return (
     <section id="work">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 pt-24 md:pt-40">
@@ -507,7 +519,7 @@ function Work() {
           </span>
         </div>
       </div>
-      {PROJECTS.map((p, i) => (
+      {(PROJECTS || projectFromProps).map((p, i) => (
         <ProjectBlock key={p.number} project={p} index={i} />
       ))}
     </section>
