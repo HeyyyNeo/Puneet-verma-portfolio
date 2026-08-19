@@ -206,12 +206,14 @@ function Hero() {
           </span>
         </div>
         <div
-          className="flex items-center gap-3 mb-4 fade-up"
+          className="flex items-end gap-3 mb-4 fade-up"
           style={{ animationDelay: "80ms" }}
         >
+          <img src="/hero-image.png" className="h-64 w-48 rounded-lg" />
           <span className="text-2xl md:text-3xl">👋</span>
+
           <span className="font-serif italic text-xl md:text-2xl text-muted-foreground">
-            Hey, I'm Puneet
+            Hey, I'm Puneet Verma
           </span>
         </div>
         <h1
