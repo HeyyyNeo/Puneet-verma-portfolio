@@ -158,7 +158,7 @@ export function Nav() {
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${true ? "py-3 backdrop-blur-xl bg-[hsl(var(--background))]/70 border-b border-black/5" : "py-6"}`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
+        <a href="/#top" className="flex items-center gap-2 group">
           <span className="h-8 w-8 rounded-full bg-foreground text-background flex items-center justify-center font-serif text-lg">
             P
           </span>
@@ -178,7 +178,7 @@ export function Nav() {
           ))}
         </nav>
         <a
-          href="#contact"
+          href="/#contact"
           className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background px-4 md:px-5 py-2 text-sm font-medium hover:bg-foreground/90 transition-all"
         >
           Get in touch

@@ -39,14 +39,14 @@ const PROJECTS = [
   },
   {
     number: "04",
-    tag: "Design Systems & Templates",
-    title: "Frameworks that scale storytelling across teams.",
-    body: "Established a strategic design and storytelling framework that transformed proposal development into a cohesive, visually engaging experience—improving quality, reinforcing brand consistency, and enabling faster delivery under tight business deadlines.",
+    tag: "",
+    title: "Social Media / LinkedIn Creatives",
+    body: "Brand-led creative assets for social and LinkedIn, built for engagement and consistent visual identity.",
     images: [
-      "/template-1.png",
-      "/template-2.png",
-      "./template-3.png",
-      "./template-4.png",
+      "./creatives-1.png",
+      "./creatives-2.png",
+      "./creatives-3.png",
+      "./creatives-4.png",
     ],
   },
 ];
